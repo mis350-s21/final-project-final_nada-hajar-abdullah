@@ -17,3 +17,6 @@ The contributors are:
 Nada Alsharqawi
 Hajar Salman
 Abdullah Tariq
+
+# ER DIAGRAM
+![DBMS ER diagram (UML notation)](https://user-images.githubusercontent.com/81968875/147393246-2bb3f950-895d-4289-a39e-95805f86682c.png)
