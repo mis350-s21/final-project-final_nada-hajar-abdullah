@@ -10,6 +10,7 @@ Requirements
 - [ ] customer can Add to cart
 - [ ] customer can choose a payment method 
 - [ ] customer should put the address for delivery
+- [ ] customer can give a feedback
 
 The contributors are:
 Nada Alsharqawi
