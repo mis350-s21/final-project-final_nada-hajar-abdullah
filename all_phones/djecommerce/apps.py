@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class PhoneConfig(AppConfig):
+class DjecommerceConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'phone'
+    name = 'djecommerce'
