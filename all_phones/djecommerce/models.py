@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models.deletion import CASCADE
 
 # Create your models here.
 class Product(models.Model):
@@ -11,3 +12,9 @@ class Product(models.Model):
 
     def __str__(self):
         return f"{self.title}"
+
+
+class feedback(models.Model):
+    customer_name=models.CharField(max_length=50)
+    feedback=models.TextField()
+    Product=models.ForeignKey('Product',on_delete= models.CASCADE)
