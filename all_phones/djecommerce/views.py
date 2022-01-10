@@ -1,6 +1,6 @@
 from django.core import paginator
 from django.shortcuts import render
-from .models import Product
+from .models import *
 from django.core.paginator import Paginator
 # Create your views here.
 def greeting(request):
