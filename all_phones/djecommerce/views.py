@@ -1,5 +1,6 @@
 from django.core import paginator
 from django.shortcuts import render
+#from .forms import ProductForm
 from .models import Product
 from django.core.paginator import Paginator
 # Create your views here.
@@ -28,5 +29,13 @@ def cart_view(request,id):
     product=Product.objects.get(id=id)
     data['product']=product
     return render(request,'cart.html',data)
+
+
+#def search_poducts(request,id):
+    #data={}
+    #f=Product.objects.get(id=id)
+    #data['search']=f
+    #return render(request,'greeting.html',data)
+    
 
 
