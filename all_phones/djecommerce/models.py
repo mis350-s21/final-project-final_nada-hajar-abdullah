@@ -19,3 +19,10 @@ class Product(models.Model):
 
     def __str__(self):
         return f"{self.title}"
+
+class Order(models.Model):
+    customer= models.ForeignKey(Customer, on_delete=models.CASCADE, null=True, blank=True)
+    order_date=models.DateTimeField(auto_now_add=True)    
+
+    def __str__(self):
+        return f"{self.id}"       
