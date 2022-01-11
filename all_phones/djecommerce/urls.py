@@ -19,5 +19,6 @@ from django.views.generic.base import TemplateView
 urlpatterns = [
     path('', TemplateView.as_view(template_name='greeting.html'),name='greeting'),
     path('detail_viwe/<int:id>', views.detail_viwe ,name='detail_viwe'),
+    #path('search_poducts/<str:id>', views.search_poducts, name='search_poducts'),
     
 ]    
