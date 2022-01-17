@@ -28,11 +28,15 @@ def detail_viwe(request,id):
     data['product']=product
     return render(request,'detail.html',data)
     
-def cart_view(request,id):
+def cart(request):
     data={}
-    product=Product.objects.get(id=id)
-    data['product']=product
-    return render(request,'cart.html',data)
+    #product=Product.objects.get(id=id)
+    #data['product']=product
+    return render(request,'store/cart.html',data)
+
+def checkout(request):
+    data={}
+    return render(request,'store/checkout.html',data)    
 
 
 #def search_poducts(request,id):
