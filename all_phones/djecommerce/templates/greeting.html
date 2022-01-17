@@ -1,7 +1,7 @@
 {% extends 'store/base.html'%}
 {% load static %}
 {% block content %}
-
+{% for p in productobj %}
 <div class="row">
     <div class="col-lg-4">
         <img class="thumbnail" src="{% static 'css/images/placeholder.png' %}">
@@ -10,8 +10,8 @@
             <hr>
 
             <button  class="btn btn-outline-secondary add-btn">Add to Cart</button>
-            <a class="btn btn-outline-success" href="#">View</a>
-            <h4 style="display: inline-block; float: right"><strong>$20</strong></h4>
+            <a class="btn btn-outline-success" href="{url 'detail_viwe' p.id }">View</a>
+            <h4 style="display: inline-block; float:right"><strong>$20</strong></h4>
 
         </div>
     </div>
@@ -39,9 +39,8 @@
             <a class="btn btn-outline-success" href="#">View</a>
             <h4 style="display: inline-block; float: right"><strong>$20</strong></h4>
 
-<<<<<
-=======
-        }
+{%endfor%}
+        
     </script>
 </body>
 
