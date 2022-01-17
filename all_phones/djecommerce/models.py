@@ -5,10 +5,10 @@ from django.db import models
 # Create your models here.
 
 class Customer(models.Model):
-  #cus_id = models.CharField("Customer ID", max_length=12, null=False, unique=True, default=0)
+  cus_id = models.CharField("Customer ID", max_length=12, null=False, unique=True, default=0)
   name = models.CharField("Customer Name", max_length=50, null=False)
   email = models.EmailField(max_length=50)
-  #address = models.CharField("Customer Address", max_length=100, null=True)
+  address = models.CharField("Customer Address", max_length=100, null=True)
   
 
   def __str__(self):
