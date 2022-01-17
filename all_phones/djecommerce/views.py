@@ -2,7 +2,7 @@ from itertools import product
 from django.core import paginator
 from django.shortcuts import render
 from .models import *
-#from .forms import ProductForm
+from .forms import ProductForm
 from .models import Product
 
 from django.core.paginator import Paginator
