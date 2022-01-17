@@ -1,8 +1,7 @@
+from itertools import product
 from django.core import paginator
 from django.shortcuts import render
-
 from .models import *
-
 #from .forms import ProductForm
 from .models import Product
 
@@ -50,6 +49,13 @@ def checkout(request):
     #f=Product.objects.get(id=id)
     #data['search']=f
     #return render(request,'greeting.html',data)
+
+
+def list_products(request):
+  data={}
+  product = Product.objects.all()
+  data['porduct'] = product
+  return render(request, "products.html", data)   
     
 
 
