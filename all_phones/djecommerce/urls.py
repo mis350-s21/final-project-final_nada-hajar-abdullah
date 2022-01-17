@@ -15,9 +15,11 @@ Including another URLconf
 """
 from django.urls import path
 from . import views
-from django.views.generic.base import TemplateView
+#from django.views.generic.base import TemplateView
 urlpatterns = [
-    path('', TemplateView.as_view(template_name='greeting.html'),name='greeting'),
+    path('', views.greeting, name='greeting'),
+    path('cart/', views.cart, name='cart'),
+    path('checkout/', views.checkout, name='checkout'),
     path('detail_viwe/<int:id>', views.detail_viwe ,name='detail_viwe'),
     #path('search_poducts/<str:id>', views.search_poducts, name='search_poducts'),
     

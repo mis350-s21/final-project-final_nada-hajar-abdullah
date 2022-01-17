@@ -1,241 +1,45 @@
-<html lang="en">
-    
-   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
-    <title>PROJECT</title>
-    <link href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://getbootstrap.com/docs/4.0/examples/album/album.css" rel="stylesheet">
-</head>
+{% extends 'store/base.html'%}
+{% load static %}
+{% block content %}
 
-<body>
-    <header>
-      
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-            <a class="navbar-brand" href="#">PROJECT</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
+<div class="row">
+    <div class="col-lg-4">
+        <img class="thumbnail" src="{% static 'css/images/placeholder.png' %}">
+        <div class="box-element product">
+            <h6><strong>Product</strong></h6>
+            <hr>
 
-            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="{% url 'greeting' %}">Home </a>
-                    </li>
-                </ul>
-                <form class="form-inline my-2 my-lg-0">
-                    <button id="cart" data-html="true" type="button" onClick="DisplayCart(cart)" class="btn btn-primary" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamus
-        sagittis lacus vel augue laoreet rutrum faucibus." style="margin-right:10px;">
-          Cart(0)
-        </button>
-                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </form>
-            </div>
-        </nav>
-    </header>
+            <button  class="btn btn-outline-secondary add-btn">Add to Cart</button>
+            <a class="btn btn-outline-success" href="#">View</a>
+            <h4 style="display: inline-block; float: right"><strong>$20</strong></h4>
 
-    <section role="py-5">
-        <br><br>
-        <div class="album py-5 bg-light">
-            <div class="container">
-
-                <div class="row">
-                    {% for p in productobj %}
-                    <div class="col-md-3">
-                        <div class="card"> </div>
-                        <img src="{{p.image}}" class="card-img-top">
-                        <div class="card-body">
-                            <div id="nm{{p.id}}" class="card-title">
-                                {{p.title}}
-                            </div>
-
-                            <div class="card-text"> </div>
-                            {{p.price}} KD
-                        </div>
-                        <div class="card-footer">
-                            <a href="{% url 'detail_viwe' p.id %}" class=" btn btn-warning ">view</a>
-                            <button id="{{p.id}}" class=" btn atc btn-primary ">Add to Cart</button>
-                        </div>
-
-                    </div>
-
-                    {% endfor %}
-
-                </div>
-            </div>
         </div>
+    </div>
 
-    </section>
-
-    <footer class="py-5 bg-dark" style="
-    clear: both;
-    position: relative;
-    margin-top: 200px;">
-        <div class="container">
-            <p class="m-0 text-center text-white">Copyright © PROJECT 2022</p>
+    <div class="col-lg-4">
+        <img class="thumbnail" src="{% static 'css/images/placeholder.png' %}">
+        <div class="box-element product">
+            <h6><strong>Product</strong></h6>
+            <hr>
+            
+            <button  class="btn btn-outline-secondary add-btn">Add to Cart</button>
+            <a class="btn btn-outline-success" href="#">View</a>
+            <h4 style="display: inline-block; float: right"><strong>$20</strong></h4>
+            
         </div>
-    </footer>
+    </div>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script>
-        window.jQuery || document.write('<script src="https://getbootstrap.com/docs/4.0/assets/js/vendor/jquery-slim.min.js"><\/script>')
-    </script>
-    <script src="https://getbootstrap.com/docs/4.0/assets/js/vendor/popper.min.js"></script>
-    <script src="https://getbootstrap.com/docs/4.0/dist/js/bootstrap.min.js"></script>
-    <script src="https://getbootstrap.com/docs/4.0/assets/js/vendor/holder.min.js"></script>
+    <div class="col-lg-4">
+        <img class="thumbnail" src="{% static 'css/images/placeholder.png' %}">
+        <div class="box-element product">
+            <h6><strong>Product</strong></h6>
+            <hr>
 
+            <button  class="btn btn-outline-secondary add-btn">Add to Cart</button>
+            <a class="btn btn-outline-success" href="#">View</a>
+            <h4 style="display: inline-block; float: right"><strong>$20</strong></h4>
 
-    <script type="text/javascript">
-        $(document).ready(function() {
-            if (localStorage.getItem('cart') == null) {
-                cart = {};
-            } else {
-                var cart = JSON.parse(localStorage.getItem('cart'))
-                var ItemCount = Object.keys(cart).length;
-
-                /*for (var x in cart) {
-                    for (var y in cart[x]) {
-                        ItemCount += 1;
-                    }
-                }*/
-
-                $("#cart").html("Cart (" + ItemCount + ")");
-            }
-        });
-        $(".atc").click(function() {
-            console.log(cart);
-            var item_id = $(this).attr("id").toString();
-            console.log(item_id);
-            var cart = localStorage.getItem('cart');
-            if (cart[item_id] != undefined) {
-                cart[item_id] = cart[item_id] + 1;
-            } else {
-                cart[item_id] = 1;
-            }
-            var ItemCount = Object.keys(cart).length;
-
-            for (var x in cart) {
-                for (var y in cart[x]) {
-                    ItemCount += 1;
-                }
-            }
-
-            localStorage.setItem('cart', JSON.stringify(cart));
-            $("#cart").html("Cart (" + ItemCount + ")");
-            console.log(cart);
-        });
-        //$ (function(){
-        //$ ('[date-toggle=popover]').popover();
-        // document.getElementById("cart").setAttribute('data-content');
-        // });
-
-
-
-        //DisplayCart(cart);
-        function DisplayCart(cart) {
-            var cartString = "";
-            cartString += "<h5>This is your cart</h5>";
-            var cartIndex = 1;
-            for (var x in cart) {
-
-                cartString += cartIndex;
-                cartString += $("#nm" + x).text() + "Qty" + cart[x][0] + "</br>";
-                cartIndex += 1;
-            }
-            document.getElementById("cart").setAttribute('data-content', cartString);
-            $('[data-toggle="popover"]').popover();
-
-        }
-    </script>
-</body>
-
-</html>
-
-
-
-<!---
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="{% url 'greeting' %}">Home </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Features</a>
-                </li>
-                <li class="nav-item">
-                    <button id="cart" data-html="true" type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamus
-    sagittis lacus vel augue laoreet rutrum faucibus.">
-      Cart(0)
-    </button>
-                </li>
-                <li>
-                    <form class="form-inline my-2 my-lg-0">
-                        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                    </form>
-                </li>
-            </ul>
         </div>
-    </nav>
-
-    <main role="main" class="container">
-        <br><br>
-        <div class="container">
-            <h1>Products</h1>
-            <div class="row">
-                {% for p in productobj %}
-                <div class="col-md-3">
-                    <div class="card"> </div>
-                    <img src="{{p.image}}" class="card-img-top">
-                    <div class="card-body">
-                        <div id="nm{{p.id}}" class="card-title">
-                            {{p.title}}
-                        </div>
-
-                        <div class="card-text"> </div>
-                        {{p.price}} KD
-                    </div>
-                    <a href="{% url 'detail_viwe' p.id %}" class=" btn btn-warning ">view</a>
-                    <button id="{{p.id}}" class=" btn atc btn-warning ">Add to Cart</button>
-                </div>
-
-                {% endfor %}
-            </div><br>
-
-
-            <div class="row">
-                <div class="pagination">
-                    <span class="step-links">
-            {% if productobj.has_previous %}
-                <a class="page-link" href="?page=1">&laquo; first</a>
-                 <a class="page-link" href="?page={{ productobj.previous_page_number }}">previous</a>
-             {% endif %}
-                
-         <span class="current ">
-             Page {{ productobj.number }} of {{productobj.paginator.num_pages }}.
-         </span> {% if productobj.has_next %}
-                    <a class="page-link" href="?page={{productobj.next_page_number }}">next page</a>
-                    <a class="page-link" href="?page={{ productobj.paginator.num_pages }}">last page &raquo;</a> {% endif %}
-                    </span>
-                </div>
-            </div><br>
-
-
-
-
-</body>
-
-</html>-->
+    </div>
+</div>
+{% endblock content %}
