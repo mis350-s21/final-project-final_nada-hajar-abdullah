@@ -1,4 +1,5 @@
 from itertools import product
+from pyexpat import model
 from django.core import paginator
 from django.shortcuts import render
 from .models import *
@@ -15,10 +16,10 @@ def greeting(request):
         product_objects = product_objects.filter(title__icontains=item_name)
     data['productobj'] = product_objects
 
-    paginator= Paginator (product_objects, 10)
-    page=request.GET.get('page')
-    product_objects = paginator . get_page(page)
-    data['productobj'] = product_objects
+    #paginator= Paginator (product_objects, 10)
+    #page=request.GET.get('page')
+    #product_objects = paginator . get_page(page)
+    #data['productobj'] = product_objects
     return render(request, "greeting.html", context=data)
 
 def list_customer(request):
@@ -44,11 +45,12 @@ def checkout(request):
     return render(request,'store/checkout.html',data)    
 
 
-#def search_poducts(request,id):
-    #data={}
-    #f=Product.objects.get(id=id)
-    #data['search']=f
-    #return render(request,'greeting.html',data)
+def search_poducts(request):
+    data={}
+    search = request.GET["search"]
+    f=Product.objects.filter(model__icontains=search)
+    data['search']=f
+    return render(request,'greeting.html',data)
 
 
 def list_products(request):
