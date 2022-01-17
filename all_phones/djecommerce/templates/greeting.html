@@ -14,7 +14,17 @@
     
     <h1>Welcome to All Phones </h1>
     
+ 
+    {% if request.user.is_authenticated %} <br>
+    <h2>The User is logged in</h2>
+    anything you put here will show only for logged in users 
+    {% else %}
+    <h2>User is not logged in </h2>
+    Anything you put here will show only for Non-logged in users
+    {% endif %}
     
+    {{ request.user.username }} <br>
+    {{ request.user.is_staff }}
 </body>
 <li><a href="/shop/list_customers/">Display All Customers</a></li><br>
 <li><a href="/shop/list_products/">Display All product</a></li><br>
