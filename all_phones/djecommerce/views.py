@@ -22,6 +22,12 @@ def greeting(request):
     data['productobj'] = product_objects
     return render(request, "greeting.html", context=data)
 
+def list_customer(request):
+  data={}
+  customers = Customer.objects.all()
+  data['cus'] = customers
+  return render(request, "list_customers.html", context=data)    
+
 def detail_viwe(request,id):
     data={}
     product=Product.objects.get(id=id)

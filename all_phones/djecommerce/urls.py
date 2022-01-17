@@ -18,6 +18,7 @@ from . import views
 #from django.views.generic.base import TemplateView
 urlpatterns = [
     path('', views.greeting, name='greeting'),
+    path('list_customers/', views.list_customer, name='list_customer'),
     path('cart/', views.cart, name='cart'),
     path('checkout/', views.checkout, name='checkout'),
     path('detail_viwe/<int:id>', views.detail_viwe ,name='detail_viwe'),
