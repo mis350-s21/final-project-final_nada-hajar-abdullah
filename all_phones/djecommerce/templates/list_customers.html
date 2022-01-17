@@ -6,20 +6,20 @@
   <title>Customers Information</title>
 </head>
 <body>
-  <h2>Customers LIST</h2>
+  <h2>CUSTOMERS LIST</h2>
   <table border="1"> 
     <tr bgcolor="LightGrey">
       <td align="center"> ID</td>
       <td align="center">Name</td>
-      <td align="center">Address</td>
+      
       
     </tr>
 
     {% for c in cus %}
     <tr>
-      <td align="center">{{ c.cus_id }}</td>
+      <td align="center">{{ c.id }}</td>
       <td align="center">{{ c.name }}</td>
-      <td align="center">{{ c.address }}</td>
+      
       
     </tr>
     {% endfor %}
