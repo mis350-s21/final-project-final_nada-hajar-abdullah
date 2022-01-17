@@ -1,7 +1,8 @@
 from itertools import product
 from django.core import paginator
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import *
+from .forms import OrderForm
 #+from .forms import ProductForm
 #from .models import Product
 
@@ -32,11 +33,20 @@ def detail_viwe(request,id):
     product=Product.objects.get(id=id)
     data['product']=product
     return render(request,'detail.html',data)
+
+def create_order(request):
+  data = {}
+  f = OrderForm(request.POST or None)
+  data["form"] = f
+  if f.is_valid():
+    f.save()
+    return redirect("greeting")
+  return render (request, "create_order.html", context=data)    
     
-def cart(request):
+def cart(request,cid):
     data={}
-    #product=Product.objects.get(id=id)
-    #data['product']=product
+    #order_record=Order.objects.get(id=cid)
+    #data['crt']=order_record
     return render(request,'store/cart.html',data)
 
 def checkout(request):

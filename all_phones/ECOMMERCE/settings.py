@@ -125,6 +125,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
+MEDIA_URL ='css/images/'
+MEDIA_ROOT= os.path.join(BASE_DIR, 'static/images')
 LOGIN_REDIRECT_URL='index'
 LOGOUT_REDIRECT_URL='index'
 ALLOWED_HOSTS = ['*']
