@@ -1,24 +1,33 @@
+{% extends 'store/base.html'%}
+{% load static %}
+{% block content %}
+
+
 <body>
     <h2>PRODUCT LIST</h2>
-    <table border="1"> 
-      <tr bgcolor="LightGrey">
-        
-        <td align="center">price</td>
-        <td align="center">model</td>
-        <td align="center" >customer</td>
-        
-      </tr>
+    <div class="container">
+      <div class="row">
+        {% for c in prt %}
+        <div class="col-md-3">
+          <div class="card">
+            <img src="{{c.image}}" class="card-img-top">
+            <div class="card-body">
+              <div class="card-title">
+                
+              </div>
+              <div class="card-text">
+                
+
+              </div>
+              <a href="/shop/detail_viwe/{{c.id}}"><button type="button">Show Details</button></a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
   
-      {% for c in prt %}
-      <tr>
-        
-        <td align="center">{{ c.price }}</td>
-        <td align="center">{{c.get_model_display}}</td>
-        <td align="center" >{{c.customer.name}}</td>
-        
-      </tr>
-      {% endfor %}
-    </table>
-    
+    <br><a href="/shop/">BACK</a> 
+    {% endblock content%}
   </body>
   </html>

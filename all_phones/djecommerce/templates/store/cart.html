@@ -31,11 +31,11 @@
                 <div style="flex:1"><strong>Quantity</strong></div>
                 <div style="flex:1"><strong>Total</strong></div>
             </div>
-            
+            {%for item in crt%}
             <div class="cart-row">
                 <div style="flex:2"><img class="row-image" src="{% static 'css/images/placeholder.png' %}"></div>
-                <div style="flex:2"><p>Product 1</p></div>
-                <div style="flex:1"><p>$20</p></div>
+                <div style="flex:2"><p>{{item.Product.title}}</p></div>
+                <div style="flex:1"><p>KWD{{item.Product.price}}</p></div>
                 <div style="flex:1">
                     <p class="quantity">2</p>
                     <div class="quantity">

@@ -17,19 +17,22 @@ class Customer(models.Model):
    
 
 class Product(models.Model):
-    Choice=(
-    (0, "Apple Iphone 11"),
-    (1, "Apple Iphone 12"),
-    (2, "Samsung 10"),
-    (3, "Sony 13"),
-  )
+    
 
-    #product= models.CharField("Product ID",max_length=12,null=False,unique=True)
-    model = models.IntegerField("Phone Model", null=True, choices=Choice) 
+    title= models.CharField(max_length=200,default=0)
     price= models.IntegerField(default=0)
     customer=models.ForeignKey(Customer,on_delete=models.CASCADE,null=False,default="0")
+    description=models.TextField(default=0)
+    image=models.CharField(max_length=300, default=0)
     def __str__(self):
-        return f"{self.model}"
+        return f"{self.title}"
+
+class Order(models.Model):
+    customer= models.ForeignKey(Customer, on_delete=models.CASCADE,null=False,default=0)        
+    date_ordered=models.DateField("Date of Order", null=True)
+    shipping_address=models.TextField(default=0)
+    def __str__(self):
+        return f"{self.id}"
 
 class feedback(models.Model):
     customer_name=models.CharField(max_length=50)
