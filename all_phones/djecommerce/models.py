@@ -28,7 +28,8 @@ class Product(models.Model):
     model = models.IntegerField("Phone Model", null=True, choices=Choice) 
     price= models.IntegerField(default=0)
     customer=models.ForeignKey(Customer,on_delete=models.CASCADE,null=False,default="0")
-
+    def __str__(self):
+        return f"{self.model}"
 
 class feedback(models.Model):
     customer_name=models.CharField(max_length=50)

@@ -1,20 +1,20 @@
 <body>
-    <h2>product LIST</h2>
+    <h2>PRODUCT LIST</h2>
     <table border="1"> 
       <tr bgcolor="LightGrey">
-        <td align="center"> product</td>
+        
         <td align="center">price</td>
         <td align="center">model</td>
         <td align="center" >customer</td>
         
       </tr>
   
-      {% for c in product %}
+      {% for c in prt %}
       <tr>
-        <td align="center">{{c.product}}</td>
+        
         <td align="center">{{ c.price }}</td>
         <td align="center">{{c.get_model_display}}</td>
-        <td align="center" >{{c.Customers.name}}</td>
+        <td align="center" >{{c.customer.name}}</td>
         
       </tr>
       {% endfor %}
