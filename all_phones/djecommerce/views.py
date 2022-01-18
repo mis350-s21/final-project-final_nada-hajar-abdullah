@@ -12,9 +12,9 @@ from django.core.paginator import Paginator
 def greeting(request):
     data={}
     product_objects= Product.objects.all()
-    item_name=request.GET.get("item_name")
-    if item_name != '' and item_name is not None:
-        product_objects = product_objects.filter(title__icontains=item_name)
+    #item_name=request.GET.get("item_name")
+    #if item_name != '' and item_name is not None:
+        #product_objects = product_objects.filter(title__icontains=item_name)
     data['productobj'] = product_objects
 
     #paginator= Paginator (product_objects, 10)
@@ -57,10 +57,13 @@ def checkout(request):
 
 def search_poducts(request):
     data={}
-    search = request.GET["search"]
-    f=Product.objects.filter(model__icontains=search)
-    data['search']=f
-    return render(request,'greeting.html',data)
+    product_objects= Product.objects.all()
+    item_name= request.GET.get('item_name')
+    if item_name != '' and item_name is not None:
+      product_objects = product_objects.filter(title__icontains=item_name)
+    data['productobj']=product_objects
+    
+    return render(request,'products.html',data)
 
 
 def list_products(request):
