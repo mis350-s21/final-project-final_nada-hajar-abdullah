@@ -131,8 +131,8 @@ STATICFILES_DIRS = [
 ]
 MEDIA_URL ='css/images/'
 MEDIA_ROOT= os.path.join(BASE_DIR, 'static/images')
-LOGIN_REDIRECT_URL='index'
-LOGOUT_REDIRECT_URL='index'
+LOGIN_REDIRECT_URL='greeting'
+LOGOUT_REDIRECT_URL='greeting'
 ALLOWED_HOSTS = ['*']
 X_FRAME_OPTIONS = '*'
 

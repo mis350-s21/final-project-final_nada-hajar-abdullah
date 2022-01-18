@@ -23,7 +23,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('shop/', include('djecommerce.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
-    path('accounts/', include('allauth.urls')),
+    path('', TemplateView.as_view(template_name='greeting.html')),
+    #path('accounts/', include('allauth.urls')),
     
     
 ]
