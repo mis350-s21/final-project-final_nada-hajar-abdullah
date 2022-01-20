@@ -14,11 +14,19 @@ Requirements
 - [ ] customer can give a feedback
 
 # ER DIAGRAM
-![DBMS ER diagram (UML notation)](https://user-images.githubusercontent.com/81968875/147393246-2bb3f950-895d-4289-a39e-95805f86682c.png)
+
+
+![DBMS ER diagram (UML notation) (1)](https://user-images.githubusercontent.com/81968875/149884971-bcac506e-dda9-43c2-8ee4-1363d87bec3b.png)
 
 The contributors are:
 -Nada Alsharqawi
 -Hajar Salman
 -Abdullah Tariq
 
+
+bounse:
+
+1-customer can login
+2-Design for login
+3-we use pootsrap
 

@@ -20,7 +20,7 @@ urlpatterns = [
     path('', views.greeting, name='greeting'),
     path('list_customers/', views.list_customer, name='list_customer'),
     path('list_products/',views.list_products,name='list_products'),
-    path('cart/', views.cart, name='cart'),
+    path('cart', views.cart, name='cart'),
     path('checkout/', views.checkout, name='checkout'),
 
     path('detail_viwe/<int:id>', views.detail_viwe ,name='detail_viwe'),
@@ -28,7 +28,7 @@ urlpatterns = [
     #path('search_poducts/<str:id>', views.search_poducts, name='search_poducts'),
 
     path('detail_viwe/<int:id>/', views.detail_viwe ,name='detail_viwe'),
-    path('search_poducts/<int:id>', views.search_poducts, name='search_poducts'),
+    path('search_poducts', views.search_poducts, name='search_poducts'),
     path('', TemplateView.as_view(template_name='greeting.html')),
 
     

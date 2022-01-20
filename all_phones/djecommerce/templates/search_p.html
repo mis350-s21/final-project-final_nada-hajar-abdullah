@@ -1,26 +1,50 @@
+{% extends 'store/base.html'%}
+{% load static %}
+{% block content %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Car Information</title>
+  <title>Document</title>
 </head>
 <body>
-  <table border="1">
-    <tr align="center" bgcolor="Grey">
-      <td colspan="6"><h2>CAR DETAIL for Licsense: {{ allp.id }}</h2></td>
-    </tr>
+  <h1>You searched for {{search}}</h1>
+  
+  
+  
+
+
+
+<table border="1"> 
+  <tr bgcolor="LightGrey">
+    <td align="center">Image</td>
+    <td align="center">Title</td>
+    <td align="center">Price</td>
+    <td align="center">Description</td>
+    
+  </tr>
+
+  {% for s in searched_p%}
+  <tr>
+    
+    <td><div class="card">
+      <img src="{{s.image}}" class="card-img-top"></td>
+    <td align="center">{{ s.title }}</td>
+    <td align="center">{{s.price }}</td>
+    <td align="center">{{ s.description }}</td>
     
     
-    
-    <tr>
-      <td align="center">{{ allp.id }}</td>
-      <td align="center">{{ allp.title }}</td>
-      <td align="center">{{ allp.image }}</td>
-      <td align="center">{{ allc.price }}</td>
-      
-    </tr>
-  </table>
-  <br><a href="/shop/">BACK</a>
+
+  </tr>
+  {% endfor %}
+</table>
+<br><a href="/shop/list_products/">BACK</a> 
+{% endblock content%}
+
 </body>
 </html>
+
+  
