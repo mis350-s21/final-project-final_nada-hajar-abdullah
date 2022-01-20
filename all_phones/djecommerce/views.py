@@ -1,7 +1,7 @@
 from itertools import product
 from pyexpat import model
 from django.core import paginator
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect, get_object_or_404
 from .models import *
 from .forms import OrderForm
 #+from .forms import ProductForm
@@ -44,10 +44,12 @@ def create_order(request):
     return redirect("greeting")
   return render (request, "create_order.html", context=data)    
     
-def cart(request,cid):
+def cart(request):
     data={}
-    #order_record=Order.objects.get(id=cid)
-    #data['crt']=order_record
+    customer =Customer.objects.filter(name="Ranya Ayman")
+    order, created = Order.objects.get_or_create(customer=customer)
+    items= order.orderitem_set.all()
+    data= {'items': items}
     return render(request,'store/cart.html',data)
 
 def checkout(request):
@@ -56,15 +58,14 @@ def checkout(request):
 
 
 def search_poducts(request):
-    data={}
-    product_objects= Product.objects.all()
-    item_name= request.GET.get('item_name')
-    if item_name != '' and item_name is not None:
-      product_objects = product_objects.filter(title__icontains=item_name)
-    data['productobj']=product_objects
+  data = {}
+  search = request.POST["search"]
+  searched_p = Product.objects.filter(title__contains=search)
+  data['search'] = search
+  data['searched_p']=searched_p
+  return render(request, "search_p.html", context=data)
     
-    return render(request,'products.html',data)
-
+    
 
 def list_products(request):
   data={}

@@ -3,18 +3,20 @@
 {% block content %}
 
 
+
 <body>
     <h2>PRODUCT LIST</h2>
     <div class="container">
       <div class="row"> 
         <div class="col-md-12">
-          <form class="card card-sm">
+          <form action="{% url 'search_poducts' %}" method= POST class="card card-sm">
             <div class="card-body row no-gutters align-items-center">
               <div class="col">
-                <input type="search" name="item_name" placeholder="Search for Products" class="form-control form-control-borderless">
+                {% csrf_token %}
+                <input type="text" name="search" placeholder="Search for Products" class="form-control form-control-borderless">
               </div>
               <div class="col-auto">
-                <button class="btn btn-success" type="submit">Search</button>
+                <button class="btn btn-success" type="submit" value="SEARCH">Search</button>
               </div>
             </div>
           </form>
@@ -41,7 +43,7 @@
       </div>
     </div>
   
-    <br><a href="/shop/">BACK</a> 
+    <br><a href="/shop/list_products/">BACK</a> 
     {% endblock content%}
   </body>
   </html>

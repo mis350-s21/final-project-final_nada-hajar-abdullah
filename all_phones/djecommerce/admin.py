@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Customer,Product,Order
+from .models import Customer, OrderItem,Product,Order, feedback
 
 # Register your models here.
 class productInLine(admin.TabularInline):
@@ -9,6 +9,6 @@ class productInLine(admin.TabularInline):
 admin.site.register(Customer)
 inlines = (productInLine,)
 admin.site.register(Product)
-#admin.site.register(feedback)
-
+admin.site.register(OrderItem)
+admin.site.register(feedback)
 admin.site.register(Order)

@@ -33,6 +33,19 @@
         
       </div>
     </div>
+    <h2>Reviews</h2>
+    <div class="reviews-wrapper">
+      {% for f in product.feedback_set.all %}
+      <div class="notification">
+        <p>
+          <strong>Stars:</strong>{{f.stars}} <br>
+          <strong>Customer:</strong>{{f.customer}} <br>
+          <strong>Feedback:</strong>{{f.feedback}}
+        </p>
+        
+      </div>
+    </div>
+    {% endfor %}
   
     <br><a href="/shop/list_products/">BACK</a><br>
     <a href="/shop/create/order/"><button type="button">Create Order</button></a> 
